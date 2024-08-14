@@ -26,6 +26,11 @@ class todosController extends Controller
         $todo->save();
         return redirect()->route('todo.home');
     }
+    public function delete($id)
+    {
+             todos::find($id)->delete();
+             return redirect()->route('todo.home');
+    }
     public function edit($id){
         $todo =todos::find($id);
         $data = compact('todo');
