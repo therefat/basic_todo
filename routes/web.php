@@ -6,15 +6,14 @@ Route::get('/',[\App\Http\Controllers\todosController::class,'index'])->name('to
 Route::get('/create',function (){
     return view('create');
 })->name('todo.create');
-//Route::post('/store',[\App\Http\Controllers\todosController::class,'store'])->name('todo.edit');
-//edit todo route
-Route::get('/edit/{id}',[todosController::class,'edit'])->name("todo.edit");
 
-//update todo route
-Route::post('/update', [todosController::class,'updateData'])->name("todo.updateData");
 
-//store todo route
-Route::post('/create', [todosController::class,'store'])->name("todo.store");
+Route::get('/edit/{id}',[\App\Http\Controllers\todosController::class,'edit'])->name('todo.edit');
 
-//delete toto route
-Route::get('/delete/{id}', [todosController::class,'delete'])->name("todo.delete");
+Route::post('/update', [\App\Http\Controllers\todosController::class,'updateData'])->name("todo.updateData");
+
+
+Route::post('/create', [\App\Http\Controllers\todosController::class,'store'])->name("todo.store");
+
+
+Route::get('/delete/{id}', [\App\Http\Controllers\todosController::class,'delete'])->name("todo.delete");
